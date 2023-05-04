@@ -1,5 +1,15 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = {}
+
+  for(const number of array){
+    const complement = target - number
+
+    if(complement in seenNumbers) return true
+
+    seenNumbers[number] = true
+  }
+  return false
+  
 }
 
 /* 
@@ -7,7 +17,16 @@ function hasTargetSum(array, target) {
 */
 
 /* 
-  Add your pseudocode here
+  Add your pseudocode here ([22, 19, 4, 6, 30], 25))
+  create an object to keep track of numbers we've already seen
+  iterate through each number in the array
+    for the current number, identify a complement that adds to the target (comple = target - sum)
+    iterate through the rest to the array
+    check if any number is our complement
+    if so return true 
+
+    if I reach the array the end of the array return false
+
 */
 
 /*
